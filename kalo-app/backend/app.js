@@ -4,6 +4,14 @@ const mongoose = require("mongoose");
 
 app.use(express.json())
 
+const cors = require('cors');
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+
 const mongoUrl = "mongodb+srv://juanansantiago2000:247JASjunio30@cluster0.9mggoap.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose.connect(mongoUrl,{
@@ -37,15 +45,36 @@ app.listen(5000,()=>{
  const User = mongoose.model("UserInfo");
 
  app.post("/register", async(req,res) => {
-    const { name, email, mobileNum } = req.body;
+    const {
+        email,
+        password,
+        name,
+        phoneNum,
+        date,
+        country,
+        englishLev,
+        educLevel,
+        educForm,
+        skills,
+        roles,
+        expTime} = req.body;
     try {
         await User.create({
-            username:name,
-            email: email,
-            phoneNum: mobileNum
+            email,
+            password,
+            name,
+            phoneNum,
+            date,
+            country,
+            englishLev,
+            educLevel,
+            educForm,
+            skills,
+            roles,
+            expTime,
         });
         res.send({status:"ok"});
     }catch(error){
         res.send({status:"error2"})
     }
- });
+});

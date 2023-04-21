@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Login extends Component {
   render() {
     return (
-      <form>
+      <form className='loginComp'>
         <h3>Sign In</h3>
 
         <div className="mb-3">
@@ -38,7 +38,7 @@ export default class Login extends Component {
         </div>
 
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" id='buttonSumbit'>
             Submit
           </button>
         </div>
