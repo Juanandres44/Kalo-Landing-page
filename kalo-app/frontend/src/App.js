@@ -1,10 +1,11 @@
 import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import 'remixicon/fonts/remixicon.css'
 import Login from "./components/login.component";
 import Content from "./components/content";
-import Home from "./components/home";
-import { Navigation } from "./components/navigation";
+import Home from "./components/landingPage/home";
+import { Navigation } from "./components/landingPage/navigation";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SmoothScroll from "smooth-scroll";
 
